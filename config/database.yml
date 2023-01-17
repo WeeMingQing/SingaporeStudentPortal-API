@@ -10,23 +10,22 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: Qee@123456
-  host: localhost
 
 
 development:
   <<: *default
-  database: CVWOProject_production
+  database: RUBYPROJECTFINALBACKEND_production
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: CVWOProject_test
+  database: RUBYPROJECTFINALBACKEND_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -51,6 +50,3 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  database: CVWOProject_production
-  username: CVWOProject
-  password: <%= ENV['CVWOPROJECT_DATABASE_PASSWORD'] %>
