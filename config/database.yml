@@ -17,6 +17,7 @@ default: &default
   password: Qee@123456
   host: localhost
 
+
 development:
   <<: *default
   database: CVWOProject_production
@@ -50,3 +51,6 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
+  database: CVWOProject_production
+  username: CVWOProject
+  password: <%= ENV['CVWOPROJECT_DATABASE_PASSWORD'] %>
