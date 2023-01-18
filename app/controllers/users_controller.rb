@@ -9,10 +9,10 @@ class UsersController < ApplicationController
    end
  
   def joinedCommunities  
-    @communities = Community.where(user_id: session_user.id)
+    @communities = Community.where(user_id: session_user.id).order(id: :asc)
     joined_communities = []
     @communities.each do |community|
-      joined_communities.push(Community.where(header: community.header).first)
+      joined_communities.push(Community.order(id: :asc).where(header: community.header).first)
     end
       render json: joined_communities
   end
