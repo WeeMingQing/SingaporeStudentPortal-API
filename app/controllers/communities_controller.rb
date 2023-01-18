@@ -58,7 +58,7 @@ class CommunitiesController < ApplicationController
           @community.user_id = 1
           @community.save
         else
-          @community.destroy
+          community.destroy
         end
       end
     end
