@@ -51,7 +51,7 @@ class CommunitiesController < ApplicationController
   # DELETE /communities/1
   # DELETE /communities/1.json
   def destroy
-    if session_user.id == 1:
+    if session_user.id == 1
       @community.destroy
     else
       comm = session_user.communities
