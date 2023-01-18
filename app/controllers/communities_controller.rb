@@ -5,13 +5,13 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.json
   def index
-    @communities = Community.all.uniq(&:header)
+    @communities = Community.order(id: :asc).uniq(&:header)
     render json: @communities
   end
 
   def ComAll 
     communities = Community.all 
-    render json: communities
+    render json: communities.order(id: :asc)
   end
 
   # GET /communities/1
