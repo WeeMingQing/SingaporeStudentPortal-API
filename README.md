@@ -3,4 +3,5 @@ This is the backend for SingaporeStudentPortal.
 
 Backend hosted on Render:
 
-  * Link to Backend code: [link](https://github.com/WeeMingQing/SingaporeStudentPortal-API)
+Website:
+ * Working application: [website-link](https://mq-ssp.netlify.app) 
