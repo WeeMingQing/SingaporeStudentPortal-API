@@ -51,14 +51,18 @@ class CommunitiesController < ApplicationController
   # DELETE /communities/1
   # DELETE /communities/1.json
   def destroy
-    comm = session_user.communities
-    comm.each do |community|
-      if community.header == @community.header
-        if community.id == @community.id 
-          @community.user_id = 1
-          @community.save
-        else
-          community.destroy
+    if session_user.id == 1:
+      @community.destroy
+    else
+      comm = session_user.communities
+      comm.each do |community|
+        if community.header == @community.header
+          if community.id == @community.id 
+            @community.user_id = 1
+            @community.save
+          else
+            community.destroy
+          end
         end
       end
     end
